@@ -6,13 +6,16 @@ const ContactForm = () => {
         email: '',
         phone: '',
         option: '',
+        description:'',
     });
 
     // Datos para el combobox (puede ser cualquier tipo de datos que desees)
     const options = [
-        { id: 1, label: 'Categoría 1' },
-        { id: 2, label: 'Categoría 2' },
-        { id: 3, label: 'Categoría 3' },
+        { id: 1, label: 'Diseño y Desarrollo web' },
+        { id: 2, label: 'Landing Page' },
+        { id: 3, label: 'Posicionamiento web' },
+        { id: 4, label: 'Branding de marca' },
+        { id: 5, label: 'Consultoría' },
     ];
 
     // Función para manejar los cambios en los campos del formulario
@@ -32,7 +35,7 @@ const ContactForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4 bg-darknight p-[4rem] rounded-[25px] border-2 border-beige">
+        <form onSubmit={handleSubmit} className="space-y-4 bg-darknight p-[2rem] rounded-[25px] border-2 border-beige">
             <h2 className="text-center xl:text-4xl text-2xl text-beige font-bold">Contáctanos</h2>
             <div className="flex flex-col">
                 <input
@@ -86,6 +89,18 @@ const ContactForm = () => {
                         </option>
                     ))}
                 </select>
+            </div>
+            <div className="flex flex-col">
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="4"
+                    value={formData.description}
+                    onChange={handleChange}
+                    className="px-2 xl:text-2xl py-1 rounded-[15px] text-xs text-beige text-center bg-darknight border-2 border-beige placeholder:text-beige"
+                    placeholder="Coméntanos un poco"
+                    required
+                />
             </div>
             <div className="flex justify-center">
                 <button className="transition ease-in-out p-1 delay-150 bg-gradient-to-r from-jade to-duck text-darknight rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">

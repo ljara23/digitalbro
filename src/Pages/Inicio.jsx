@@ -44,7 +44,7 @@ export default function Inicio(){
     return(
         <>
             <nav aria-label="Global" className="fixed w-full flex items-center justify-center p-6 lg:px-8 z-50 backdrop-blur-sm">
-                <div className={`flex items-center justify-between lg:w-full font-normal ${isDark ? 'text-darknight hover:text-darknight' : 'text-beige hover:text-jade'} transition-colors duration-300`}>
+                <div className={`flex items-center justify-between lg:w-full font-normal ${isDark ? 'text-darknight hover:text-darknight' : 'text-beige hover:text-jade'} transition-colors duration-200`}>
                     {/* Logo */}
                     <a href="#" className="flex -m-1.5 p-1.5 items-center transform transition-transform duration-200 hover:scale-110">                    
                         <img
@@ -138,7 +138,7 @@ export default function Inicio(){
                                 </p>                            
                             </div> 
                             <div className="flex justify-end">
-                                <a href="#services" className="transition ease-in-out p-1 delay-150 bg-gradient-to-r from-jade to-duck text-darknight rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
+                                <a href="#services" className="transition ease-in-out p-1 delay-150 bg-gradient-to-r from-jade to-duck text-darknight rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                     <span className="flex item-center items-center font-extraBold xl:text-2xl text-xs">Más info<img alt="Logo" src="/src/assets/logo-dark.svg" className="h-6 w-auto"/></span>
                                 </a>
                             </div>   
@@ -150,22 +150,22 @@ export default function Inicio(){
                 <div className="mb-8 xl:h-[10vh]">
                     <ul className="flex flex-wrap -mb-px text-sm justify-center items-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
                         <li className="me-4" role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-300" id="web-a-medida-tab" data-tabs-target="#web-a-medida" type="button" role="tab" aria-controls="web-a-medida" aria-selected="false">Web a Medida</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="web-a-medida-tab" data-tabs-target="#web-a-medida" type="button" role="tab" aria-controls="web-a-medida" aria-selected="false">Web a Medida</button>
                         </li>
                         <li className="me-4" role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-300" id="diseno-y-desarrollo-web-tab" data-tabs-target="#diseno-y-desarrollo-web" type="button" role="tab" aria-controls="diseno-y-desarrollo-web" aria-selected="false">Diseño y Desarrollo Web</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="diseno-y-desarrollo-web-tab" data-tabs-target="#diseno-y-desarrollo-web" type="button" role="tab" aria-controls="diseno-y-desarrollo-web" aria-selected="false">Diseño y Desarrollo Web</button>
                         </li>
                         <li className="me-4" role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-300" id="marketing-digital-tab" data-tabs-target="#marketing-digital" type="button" role="tab" aria-controls="marketing-digital" aria-selected="false">Marketing Digital</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="marketing-digital-tab" data-tabs-target="#marketing-digital" type="button" role="tab" aria-controls="marketing-digital" aria-selected="false">Marketing Digital</button>
                         </li>
                         <li className="me-4" role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-300" id="chatbot-tab" data-tabs-target="#chatbot" type="button" role="tab" aria-controls="chatbot" aria-selected="false">Chatbot</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="chatbot-tab" data-tabs-target="#chatbot" type="button" role="tab" aria-controls="chatbot" aria-selected="false">Chatbot</button>
                         </li>
                         <li className="me-4" role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-300" id="ecommerce-tab" data-tabs-target="#ecommerce" type="button" role="tab" aria-controls="ecommerce" aria-selected="false">E-commerce</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="ecommerce-tab" data-tabs-target="#ecommerce" type="button" role="tab" aria-controls="ecommerce" aria-selected="false">E-commerce</button>
                         </li>
                         <li role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-300" id="consultoria-tab" data-tabs-target="#consultoria" type="button" role="tab" aria-controls="consultoria" aria-selected="false">Consultoría</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="consultoria-tab" data-tabs-target="#consultoria" type="button" role="tab" aria-controls="consultoria" aria-selected="false">Consultoría</button>
                         </li>
                     </ul>
                 </div>
@@ -272,7 +272,7 @@ export default function Inicio(){
                                             <h2 className="text-2xl font-bold text-darknight">Página web & E-commerce</h2>
                                             <p className="text-darknight">Web que combina una sección informativa sobre arquitectura con una tienda para interiores</p>
                                             <div className="text-center md:text-right">
-                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
+                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                                     <span className="flex item-center items-center">lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
@@ -292,7 +292,7 @@ export default function Inicio(){
                                             <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo landing page</h2>
                                             <p className="text-darknight">Se desarrolló una landing page para una Agencia de capacitación a emprendedores</p>
                                             <div className="text-center md:text-right">
-                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
+                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                                     <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
@@ -311,7 +311,7 @@ export default function Inicio(){
                                             <h2 className="text-2xl font-bold text-darknight">Desarrollo web y mailing marketing</h2>
                                             <p className="text-darknight">Se realizó creación de mailings a medida y gestión de contenido para empresa se seguros</p>
                                             <div className="text-center md:text-right">
-                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
+                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                                     <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
@@ -330,7 +330,7 @@ export default function Inicio(){
                                             <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo web</h2>
                                             <p className="text-darknight">Se trabajó en el diseño y desarrollo web para empresa del rubro financiero automovilístico.</p>
                                             <div className="text-center md:text-right">
-                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
+                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                                     <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
@@ -349,7 +349,7 @@ export default function Inicio(){
                                             <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo de multi web</h2>
                                             <p className="text-darknight">Se realizó una multi web para empresa del rubro legal que ofece capacitaciones y servicios corporativos.</p>
                                             <div className="text-center md:text-right">
-                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
+                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                                     <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
@@ -393,11 +393,25 @@ export default function Inicio(){
                         </div>
                         <div className="flex z-30">
                             <ContactForm></ContactForm>
-                        </div>                                                   
-                    </div>                    
-                </div>
+                        </div>                                                                           
+                    </div>   
+                    <div className="container m-auto flex justify-around items-center pb-4">
+                        <h3 className="text-beige flex items-center">Copyright © 2025 Digital Bro</h3> 
+                        <div className="flex items-center">
+                            <a href="https://www.facebook.com/digitalbroperu" target="_blank"><img
+                            alt=""
+                            src="/src/assets/fb-icon.svg"
+                            className="h-5 w-auto ml-2 transform transition-transform duration-200 hover:scale-110"
+                            /></a>
+                            <a href="https://www.instagram.com/digitalbroperu/" target="_blank"><img
+                            alt=""
+                            src="/src/assets/insta-icon.svg"
+                            className="h-5 w-auto ml-2 transform transition-transform duration-200 hover:scale-110"
+                            /></a>
+                        </div>                        
+                    </div>                 
+                </div>                
             </section>
-
         </> 
         )
 }
