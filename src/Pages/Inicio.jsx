@@ -2,9 +2,27 @@ import { useState,useEffect } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import ContactForm from '../Components/Contact/ContactForm'
+import slider1 from '../assets/slider1.webp'
+import slidercontact from '../assets/slider-contact1.webp'
+import nav1 from '../assets/img-nav1.webp'
+import nav2 from '../assets/img-nav2.webp'
+import nav3 from '../assets/img-nav3.webp'
+import nav4 from '../assets/img-nav4.webp'
+import nav5 from '../assets/img-nav5.webp'
+import nav6 from '../assets/img-nav6.webp'
+import portafolio1 from '../assets/img-portafolio1.webp'
+import portafolio2 from '../assets/img-portafolio2.webp'
+import portafolio3 from '../assets/img-portafolio3.webp'
+import portafolio4 from '../assets/img-portafolio4.webp'
+import portafolio5 from '../assets/img-portafolio5.webp'
+import instaicon from '../assets/insta-icon.svg'
+import fbicon from '../assets/fb-icon.svg'
+import logobeige from '../assets/logo-beige.svg'
+import logodark from '../assets/logo-dark.svg'
+import logopr from '../assets/logo-pr.svg'
 
 const navigation = [
-  { name: 'Inicio', href: '#' },
+  { name: 'Home', href: '#' },
   { name: 'Servicios', href: '#services' },
   { name: 'Portafolio', href: '#portafolio' },
   { name: 'Contactanos', href: '#contact' },
@@ -49,7 +67,7 @@ export default function Inicio(){
                     <a href="#" className="flex -m-1.5 p-1.5 items-center transform transition-transform duration-200 hover:scale-110">                    
                         <img
                             alt="Logo"
-                            src={`${isDark ? '/src/assets/logo-dark.svg' : '/src/assets/logo-beige.svg'}`}
+                            src={`${isDark ? logodark : logobeige}`}
                             className="h-8 w-auto"
                         />
                         <span className="font-semiBold inline-block align-text-bottom tracking-tighter">DIGITAL BRO</span>
@@ -86,7 +104,7 @@ export default function Inicio(){
                         <span className="sr-only">Your Company</span>
                         <img
                         alt=""
-                        src="/src/assets/logo-pr.svg"
+                        src={logopr}
                         className="h-8 w-auto"
                         />
                     </a>
@@ -128,7 +146,7 @@ export default function Inicio(){
                     <div className="flex justify-end items-center mx-auto font-sans h-screen relative">                        
                         <img
                             alt="Slider 1"
-                            src="/src/assets/slider1.webp"
+                            src={slider1}
                             className="h-[80vh] z-0 absolute left-0 right-0 top-1/2 transform -translate-y-1/2 opacity-50 rounded-[25px]"
                         />
                         <div className="rounded-[25px] text-jade z-10">
@@ -139,7 +157,7 @@ export default function Inicio(){
                             </div> 
                             <div className="flex justify-end">
                                 <a href="#services" className="transition ease-in-out p-1 delay-150 bg-gradient-to-r from-jade to-duck text-darknight rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
-                                    <span className="flex item-center items-center font-extraBold xl:text-2xl text-xs">Más info<img alt="Logo" src="/src/assets/logo-dark.svg" className="h-6 w-auto"/></span>
+                                    <span className="flex item-center items-center font-extraBold xl:text-2xl text-xs">Más info<img alt="Logo" src={logodark} className="h-6 w-auto"/></span>
                                 </a>
                             </div>   
                         </div>  
@@ -179,7 +197,7 @@ export default function Inicio(){
                         <div className="flex-1 p-2 flex justify-center">
                             <img
                                 alt=""
-                                src="/src/assets/img-nav1.webp"
+                                src={nav1}
                                 className="h-80 w-auto rounded-[25px]"
                             />
                         </div>
@@ -193,7 +211,7 @@ export default function Inicio(){
                         <div className="flex-1 p-2 flex justify-center">
                             <img
                                 alt=""
-                                src="/src/assets/img-nav2.webp"
+                                src={nav2}
                                 className="h-80 w-auto rounded-[25px]"
                             />
                         </div>
@@ -207,7 +225,7 @@ export default function Inicio(){
                         <div className="flex-1 p-2 flex justify-center">
                             <img
                                 alt=""
-                                src="/src/assets/img-nav3.webp"
+                                src={nav3}
                                 className="h-80 w-auto rounded-[25px]"
                             />
                         </div>
@@ -221,7 +239,7 @@ export default function Inicio(){
                         <div className="flex-1 p-2 flex justify-center">
                             <img
                                 alt=""
-                                src="/src/assets/img-nav4.webp"
+                                src={nav4}
                                 className="h-80 w-auto rounded-[25px]"
                             />
                         </div>
@@ -235,7 +253,7 @@ export default function Inicio(){
                         <div className="flex-1 p-2 flex justify-center">
                             <img
                                 alt=""
-                                src="/src/assets/img-nav5.webp"
+                                src={nav5}
                                 className="h-80 w-auto rounded-[25px]"
                             />
                         </div>    
@@ -250,7 +268,7 @@ export default function Inicio(){
                         <div className="flex-1 p-2 flex justify-center">
                             <img
                                 alt=""
-                                src="/src/assets/img-nav6.webp"
+                                src={nav6}
                                 className="h-80 w-auto rounded-[25px]"
                             />
                         </div>
@@ -266,14 +284,14 @@ export default function Inicio(){
                                 <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
                                         {/* Imagen del carrusel */}
-                                        <img src="/src/assets/img-portafolio1.webp" className="w-[25rem] rounded-lg" alt="..."/>
+                                        <img src={portafolio1} className="w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
                                             <h2 className="text-2xl font-bold text-darknight">Página web & E-commerce</h2>
                                             <p className="text-darknight">Web que combina una sección informativa sobre arquitectura con una tienda para interiores</p>
                                             <div className="text-center md:text-right">
                                                 <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
-                                                    <span className="flex item-center items-center">lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
+                                                    <span className="flex item-center items-center">lo quiero<img alt="Logo" src={logopr} className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
                                         </div>
@@ -286,14 +304,14 @@ export default function Inicio(){
                                 <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
                                         {/* Imagen del carrusel */}
-                                        <img src="/src/assets/img-portafolio2.webp" className="w-[25rem] rounded-lg" alt="..."/>
+                                        <img src={portafolio2} className="w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
                                             <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo landing page</h2>
                                             <p className="text-darknight">Se desarrolló una landing page para una Agencia de capacitación a emprendedores</p>
                                             <div className="text-center md:text-right">
                                                 <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
-                                                    <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
+                                                    <span className="flex items-center">Lo quiero<img alt="Logo" src={logopr} className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
                                         </div>
@@ -305,14 +323,14 @@ export default function Inicio(){
                                 <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
                                         {/* Imagen del carrusel */}
-                                        <img src="/src/assets/img-portafolio3.webp" className="w-[25rem] rounded-lg" alt="..."/>
+                                        <img src={portafolio3} className="w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
                                             <h2 className="text-2xl font-bold text-darknight">Desarrollo web y mailing marketing</h2>
                                             <p className="text-darknight">Se realizó creación de mailings a medida y gestión de contenido para empresa se seguros</p>
                                             <div className="text-center md:text-right">
                                                 <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
-                                                    <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
+                                                    <span className="flex items-center">Lo quiero<img alt="Logo" src={logopr} className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
                                         </div>
@@ -324,14 +342,14 @@ export default function Inicio(){
                                 <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
                                         {/* Imagen del carrusel */}
-                                        <img src="/src/assets/img-portafolio4.webp" className="w-[25rem] rounded-lg" alt="..."/>
+                                        <img src={portafolio4} className="w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
                                             <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo web</h2>
                                             <p className="text-darknight">Se trabajó en el diseño y desarrollo web para empresa del rubro financiero automovilístico.</p>
                                             <div className="text-center md:text-right">
                                                 <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
-                                                    <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
+                                                    <span className="flex items-center">Lo quiero<img alt="Logo" src={logopr} className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
                                         </div>
@@ -343,14 +361,14 @@ export default function Inicio(){
                                 <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
                                         {/* Imagen del carrusel */}
-                                        <img src="/src/assets/img-portafolio5.webp" className="w-[25rem] rounded-lg" alt="..."/>
+                                        <img src={portafolio5} className="w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
                                             <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo de multi web</h2>
                                             <p className="text-darknight">Se realizó una multi web para empresa del rubro legal que ofece capacitaciones y servicios corporativos.</p>
                                             <div className="text-center md:text-right">
                                                 <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
-                                                    <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
+                                                    <span className="flex items-center">Lo quiero<img alt="Logo" src={logopr} className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
                                         </div>
@@ -381,7 +399,7 @@ export default function Inicio(){
                     <div className="flex justify-around items-center mx-auto font-sans h-screen relative">  
                         <img
                             alt="Slider contáctanos"
-                            src="/src/assets/slider-contact1.webp"
+                            src={slidercontact}
                             className="h-[80vh] z-0 absolute right-0 top-1/2 transform -translate-y-1/2 opacity-50 rounded-[25px]"
                         />                       
                         <div className="rounded-[25px] text-jade z-10">
@@ -392,7 +410,7 @@ export default function Inicio(){
                             </div>                      
                         </div>
                         <div className="flex z-30">
-                            <ContactForm></ContactForm>
+                            <ContactForm logodark={logodark}></ContactForm>
                         </div>                                                                           
                     </div>   
                     <div className="container m-auto flex justify-around items-center pb-4">
@@ -400,12 +418,12 @@ export default function Inicio(){
                         <div className="flex items-center">
                             <a href="https://www.facebook.com/digitalbroperu" target="_blank"><img
                             alt=""
-                            src="/src/assets/fb-icon.svg"
+                            src={fbicon}
                             className="h-5 w-auto ml-2 transform transition-transform duration-200 hover:scale-110"
                             /></a>
                             <a href="https://www.instagram.com/digitalbroperu/" target="_blank"><img
                             alt=""
-                            src="/src/assets/insta-icon.svg"
+                            src={instaicon}
                             className="h-5 w-auto ml-2 transform transition-transform duration-200 hover:scale-110"
                             /></a>
                         </div>                        

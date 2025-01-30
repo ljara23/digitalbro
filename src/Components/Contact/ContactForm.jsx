@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-const ContactForm = () => {
+
+const ContactForm = ({ logodark }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -9,7 +10,8 @@ const ContactForm = () => {
         description:'',
     });
 
-    // Datos para el combobox (puede ser cualquier tipo de datos que desees)
+    const [statusMessage, setStatusMessage] = useState('');
+
     const options = [
         { id: 1, label: 'Diseño y Desarrollo web' },
         { id: 2, label: 'Landing Page' },
@@ -18,7 +20,6 @@ const ContactForm = () => {
         { id: 5, label: 'Consultoría' },
     ];
 
-    // Función para manejar los cambios en los campos del formulario
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -27,11 +28,37 @@ const ContactForm = () => {
         });
     };
 
-    // Función para manejar el envío del formulario
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
-        // Aquí puedes hacer algo con los datos, como enviarlos a un servidor.
+        // Mostrar un mensaje de espera
+        setStatusMessage('Enviando...');
+
+        try {
+            const response = await fetch('https://digitalbroperu.com/mailer/contact.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setStatusMessage('Correo enviado correctamente');
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    option: '',
+                    description: '',
+                });
+            } else {
+                setStatusMessage('Hubo un error al enviar el correo');
+            }
+        } catch (error) {
+            setStatusMessage('Error de conexión');
+        }
     };
 
     return (
@@ -104,10 +131,11 @@ const ContactForm = () => {
             </div>
             <div className="flex justify-center">
                 <button className="transition ease-in-out p-1 delay-150 bg-gradient-to-r from-jade to-duck text-darknight rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
-                    <span className="flex item-center items-center font-extraBold xl:text-2xl text-xs">Enviar<img alt="Logo" src="/src/assets/logo-dark.svg" className="h-6 w-auto"/></span>
+                    <span className="flex item-center items-center font-extraBold xl:text-2xl text-xs">Enviar<img alt="Logo" src={logodark} className="h-6 w-auto"/></span>
                 </button>
             </div>
 
+            {statusMessage && <p className="text-center text-beige mt-4">{statusMessage}</p>}
         </form>
     );
 };
