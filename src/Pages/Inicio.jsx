@@ -5,9 +5,9 @@ import ContactForm from '../Components/Contact/ContactForm'
 
 const navigation = [
   { name: 'Inicio', href: '#' },
-  { name: 'Servicios', href: '#service' },
+  { name: 'Servicios', href: '#services' },
   { name: 'Portafolio', href: '#portafolio' },
-  { name: 'Contactanos', href: '#contactanos' },
+  { name: 'Contactanos', href: '#contact' },
 ]
 
 
@@ -125,34 +125,28 @@ export default function Inicio(){
                 </DialogPanel>
                 </Dialog>
                 <div className="container m-auto">
-                    <div className="flex justify-between items-center mx-auto font-sans h-screen relative">                        
+                    <div className="flex justify-end items-center mx-auto font-sans h-screen relative">                        
                         <img
                             alt="Slider 1"
                             src="/src/assets/slider1.webp"
                             className="h-[80vh] z-0 absolute left-0 right-0 top-1/2 transform -translate-y-1/2 opacity-50 rounded-[25px]"
                         />
-                        <div className="flex-none">
-                        </div>    
-                        <div className="bg-gradient-to-r from-jade to-duck p-[5em] rounded-[25px] text-darknight z-10">
-                            <div className="text-4xl font-extraBold tracking-normal leading-4 text-left">
-                                IMPULSA                            
-                            </div>
-                            <div className="text-8xl font-extraBold tracking-normal text-left">
-                                TU MARCA                            
-                            </div>
-                            <div className="text-md font-regular tracking-normal leading-4 text-right">
-                                NOSOTROS TE AYUDAMOS
-                            </div>
-                            <div className="text-right">
-                                <button className="transitionease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-3 hover:-translate-y-1 hover:scale-105 duration-300">
-                                <span className="flex item-center items-center">Más Info <img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
-                                </button>
-                            </div>                        
-                        </div>
-                    </div>  
+                        <div className="rounded-[25px] text-jade z-10">
+                            <div className="lg:text-6xl xl:text-8xl text-4xl font-extraBold tracking-normal leading-2 tracking-tighter text-right">
+                                <p>
+                                    impulsamos<br></br>transformamos<br></br>tu marca
+                                </p>                            
+                            </div> 
+                            <div className="flex justify-end">
+                                <a href="#services" className="transition ease-in-out p-1 delay-150 bg-gradient-to-r from-jade to-duck text-darknight rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
+                                    <span className="flex item-center items-center font-extraBold xl:text-2xl text-xs">Más info<img alt="Logo" src="/src/assets/logo-dark.svg" className="h-6 w-auto"/></span>
+                                </a>
+                            </div>   
+                        </div>  
+                    </div>
                 </div>
             </header>
-            <section className="container m-auto h-screen flex flex-col justify-center items-center z-10" id="service">
+            <section className="container m-auto h-screen flex flex-col justify-center items-center z-10" id="services">
                 <div className="mb-8 xl:h-[10vh]">
                     <ul className="flex flex-wrap -mb-px text-sm justify-center items-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
                         <li className="me-4" role="presentation">
@@ -275,8 +269,8 @@ export default function Inicio(){
                                         <img src="/src/assets/img-portafolio1.webp" className="w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
-                                            <h2 className="text-2xl font-bold text-darknight">Servicio de E-commerce</h2>
-                                            <p className="text-darknight">Empresa del rubro de servicio arquitectónico</p>
+                                            <h2 className="text-2xl font-bold text-darknight">Página web & E-commerce</h2>
+                                            <p className="text-darknight">Web que combina una sección informativa sobre arquitectura con una tienda para interiores</p>
                                             <div className="text-center md:text-right">
                                                 <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
                                                     <span className="flex item-center items-center">lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
@@ -295,8 +289,65 @@ export default function Inicio(){
                                         <img src="/src/assets/img-portafolio2.webp" className="w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
-                                            <h2 className="text-2xl font-bold text-darknight">Servicio de diseño y desarrollo web</h2>
-                                            <p className="text-darknight">Agencia de marketing empresarial</p>
+                                            <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo landing page</h2>
+                                            <p className="text-darknight">Se desarrolló una landing page para una Agencia de capacitación a emprendedores</p>
+                                            <div className="text-center md:text-right">
+                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
+                                                    <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
+                                                </button>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* Terecer slide */}
+                            <div className="carousel-item duration-700 ease-in-out transform transition-all bg-gradient-to-r from-jade to-duck" data-carousel-item>
+                                <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
+                                        {/* Imagen del carrusel */}
+                                        <img src="/src/assets/img-portafolio3.webp" className="w-[25rem] rounded-lg" alt="..."/>
+                                        {/* Texto al costado de la imagen */}
+                                        <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
+                                            <h2 className="text-2xl font-bold text-darknight">Desarrollo web y mailing marketing</h2>
+                                            <p className="text-darknight">Se realizó creación de mailings a medida y gestión de contenido para empresa se seguros</p>
+                                            <div className="text-center md:text-right">
+                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
+                                                    <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
+                                                </button>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* Cuarto slide */}
+                            <div className="carousel-item duration-700 ease-in-out transform transition-all bg-gradient-to-r from-jade to-duck" data-carousel-item>
+                                <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
+                                        {/* Imagen del carrusel */}
+                                        <img src="/src/assets/img-portafolio4.webp" className="w-[25rem] rounded-lg" alt="..."/>
+                                        {/* Texto al costado de la imagen */}
+                                        <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
+                                            <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo web</h2>
+                                            <p className="text-darknight">Se trabajó en el diseño y desarrollo web para empresa del rubro financiero automovilístico.</p>
+                                            <div className="text-center md:text-right">
+                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
+                                                    <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
+                                                </button>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* Quinto slide */}
+                            <div className="carousel-item duration-700 ease-in-out transform transition-all bg-gradient-to-r from-jade to-duck" data-carousel-item>
+                                <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
+                                        {/* Imagen del carrusel */}
+                                        <img src="/src/assets/img-portafolio5.webp" className="w-[25rem] rounded-lg" alt="..."/>
+                                        {/* Texto al costado de la imagen */}
+                                        <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
+                                            <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo de multi web</h2>
+                                            <p className="text-darknight">Se realizó una multi web para empresa del rubro legal que ofece capacitaciones y servicios corporativos.</p>
                                             <div className="text-center md:text-right">
                                                 <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
                                                     <span className="flex items-center">Lo quiero<img alt="Logo" src="/src/assets/logo-pr.svg" className="h-8 w-auto"/></span>
@@ -327,7 +378,7 @@ export default function Inicio(){
             </section>
             <section className="bg-darknight z-10" id="contact">  
                 <div className="container m-auto">
-                    <div className="flex justify-between items-center mx-auto font-sans h-screen relative">  
+                    <div className="flex justify-around items-center mx-auto font-sans h-screen relative">  
                         <img
                             alt="Slider contáctanos"
                             src="/src/assets/slider-contact1.webp"
@@ -342,8 +393,7 @@ export default function Inicio(){
                         </div>
                         <div className="flex z-30">
                             <ContactForm></ContactForm>
-                        </div>
-                                                   
+                        </div>                                                   
                     </div>                    
                 </div>
             </section>

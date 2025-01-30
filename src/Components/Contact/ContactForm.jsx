@@ -32,7 +32,7 @@ const ContactForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4 bg-darknight px-[4rem] py-4 mr-8 rounded-[25px] border-2 border-beige">
+        <form onSubmit={handleSubmit} className="space-y-4 bg-darknight p-[4rem] rounded-[25px] border-2 border-beige">
             <h2 className="text-center xl:text-4xl text-2xl text-beige font-bold">Contáctanos</h2>
             <div className="flex flex-col">
                 <input
