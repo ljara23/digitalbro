@@ -1,31 +1,67 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Node.js CI
+name: Deploy to Server
 
 on:
+  # Ejecutar cuando se haga un push a la rama main
   push:
-    branches: [ "main" ]
+    branches: 
+      - "main"
+  
+  # Ejecutar también cuando se haga un pull_request en cualquier rama dirigida a main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main"
 
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 30 
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
+        node-version: '18.x'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build project
+      run: npm run build --if-present
+
+    # Comprimir los archivos dentro de dist (no la carpeta dist completa)
+    - name: Compress dist files
+      run: tar -czvf dist.tar.gz -C dist .
+
+    # Subir el archivo comprimido al servidor usando SFTP
+    - name: Upload compressed dist to server
+      uses: appleboy/ftp-action@v1
+      with:
+        host: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        port: 22
+        source: "dist.tar.gz"
+        destination: "/digitalbroperu.com/public_html"
+
+    # Eliminar los archivos antiguos y descomprimir el archivo en el servidor
+    - name: SSH into the server, delete old files, and decompress the dist folder
+      uses: appleboy/ssh-action@v0.1.0
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        port: 22
+        script: |
+          # Navegar al directorio de destino
+          cd /digitalbroperu.com/public_html
+          
+          # Eliminar los archivos antiguos en el directorio donde se colocarán los nuevos archivos
+          rm -rf *  # Elimina todos los archivos en la carpeta de destino, ajusta si es necesario
+          
+          # Descomprimir el archivo tar.gz que contiene los archivos de dist
+          tar -xzvf dist.tar.gz
+          
+          # (Opcional) Eliminar el archivo comprimido después de descomprimir
+          rm dist.tar.gz
