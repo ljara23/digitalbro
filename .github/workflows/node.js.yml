@@ -13,44 +13,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Paso 1: Checkout del código
-      - name: Checkout code
-        uses: actions/checkout@v2
+    # 1. Checkout del código
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      # Paso 2: Instalar Node.js y dependencias
-      - name: Use Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18.x'
+    # 2. Configuración de la clave SSH
+    - name: Set up SSH key
+      uses: webfactory/ssh-agent@v1.2.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Install dependencies
-        run: npm ci
+    # 3. Configuración de la passphrase (si la clave tiene passphrase)
+    - name: Set up SSH passphrase
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SERVER_SSH_KEY" > ~/.ssh/id_rsa
+        echo "$SERVER_PASSPHRASE" | ssh-add ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+      env:
+        SSH_PASSPHRASE: ${{ secrets.SERVER_PASSPHRASE }}
 
-      # Paso 3: Construir el proyecto
-      - name: Build project
-        run: npm run build --if-present
-
-      # Paso 4: Comprimir los archivos en la carpeta dist (no la carpeta dist completa)
-      - name: Compress dist files
-        run: tar -czvf dist.tar.gz -C dist .
-
-      # Paso 5: Subir el archivo comprimido al servidor usando SSH
-      - name: SSH into the server, delete old files, and decompress
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          port: 18765
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
-            # Navegar al directorio donde están los archivos web
-            cd /digitalbroperu.com/public_html
-
-            # Eliminar los archivos anteriores (o ajusta según sea necesario)
-            rm -rf *
-
-            # Subir y descomprimir el archivo tar.gz
-            tar -xzvf dist.tar.gz
-
-            # (Opcional) Eliminar el archivo comprimido después de descomprimir
-            rm dist.tar.gz
+    # 4. Conectarse al servidor mediante SSH
+    - name: SSH into the server and deploy
+      uses: appleboy/ssh-action@v0.1.0
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        port: 22
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        passphrase: ${{ secrets.SERVER_PASSPHRASE }}
+        script: |
+          # El script que deseas ejecutar en el servidor.
+          cd /ruta/del/directorio
+          # Realiza las operaciones necesarias (por ejemplo, eliminar archivos antiguos, etc.)
+          rm -rf *  # Esto elimina todos los archivos anteriores
+          # Otros comandos que necesitas ejecutar en el servidor
