@@ -2,55 +2,55 @@ name: Deploy to Server
 
 on:
   push:
-    branches: ["main"]
-  
+    branches:
+      - "main"
   pull_request:
-    branches: ["main"]
+    branches:
+      - "main"
 
 jobs:
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30 
 
     steps:
-    - name: Checkout the code
-      uses: actions/checkout@v4
-    
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18.x'
+      # Paso 1: Checkout del código
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: npm ci
-    
-    - name: Build the project
-      run: npm run build --if-present
+      # Paso 2: Instalar Node.js y dependencias
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
 
-    # Comprimir los archivos dentro de dist (no la carpeta dist completa)
-    - name: Compress dist files
-      run: tar -czvf dist.tar.gz -C dist .
-    
-    # Subir el archivo comprimido y ejecutar comandos en el servidor
-    - name: Upload and deploy using SSH
-      uses: appleboy/ssh-action@v1.2.0
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        password: ${{ secrets.SERVER_SSH_KEY }}
-        port: 22
-        script: |
-          # Navegar al directorio donde se encuentran los archivos del sitio web
-          cd /digitalbroperu.com/public_html
-          
-          # Eliminar los archivos antiguos en el directorio donde se colocarán los nuevos archivos
-          rm -rf *  # Elimina todos los archivos en la carpeta de destino, ajusta si es necesario
-          
-          # Subir el archivo comprimido desde GitHub Actions al servidor usando SCP
-          scp -P 22 dist.tar.gz ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:/digitalbroperu.com/public_html
-          
-          # Descomprimir el archivo tar.gz que contiene los archivos de dist
-          tar -xzvf dist.tar.gz
-          
-          # Eliminar el archivo comprimido después de descomprimirlo
-          rm dist.tar.gz
+      - name: Install dependencies
+        run: npm ci
+
+      # Paso 3: Construir el proyecto
+      - name: Build project
+        run: npm run build --if-present
+
+      # Paso 4: Comprimir los archivos en la carpeta dist (no la carpeta dist completa)
+      - name: Compress dist files
+        run: tar -czvf dist.tar.gz -C dist .
+
+      # Paso 5: Subir el archivo comprimido al servidor usando SSH
+      - name: SSH into the server, delete old files, and decompress
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          port: 18765
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            # Navegar al directorio donde están los archivos web
+            cd /digitalbroperu.com/public_html
+
+            # Eliminar los archivos anteriores (o ajusta según sea necesario)
+            rm -rf *
+
+            # Subir y descomprimir el archivo tar.gz
+            tar -xzvf dist.tar.gz
+
+            # (Opcional) Eliminar el archivo comprimido después de descomprimir
+            rm dist.tar.gz
