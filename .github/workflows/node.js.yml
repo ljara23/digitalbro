@@ -1,50 +1,65 @@
 name: Deploy to Server
 
 on:
+  # Ejecutar cuando se haga un push a la rama "main"
   push:
     branches:
       - "main"
+  # Ejecutar cuando haya un pull request dirigido a "main"
   pull_request:
     branches:
       - "main"
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
     # 1. Checkout del código
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # 2. Configuración de la clave SSH
+    # 2. Configuración de la clave SSH (usando passphrase)
     - name: Set up SSH key
-      uses: webfactory/ssh-agent@v0.9.0
-      with:
-        ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
-
-    # 3. Configuración de la passphrase (si la clave tiene passphrase)
-    - name: Set up SSH passphrase
       run: |
         mkdir -p ~/.ssh
-        echo "$SERVER_SSH_KEY" > ~/.ssh/id_rsa
-        echo "$SERVER_PASSPHRASE" | ssh-add ~/.ssh/id_rsa
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        echo "$SSH_PASSPHRASE" | ssh-add ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
       env:
-        SSH_PASSPHRASE: ${{ secrets.SERVER_PASSPHRASE }}
+        SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}   # Clave privada almacenada en GitHub Secrets
+        SSH_PASSPHRASE: ${{ secrets.SERVER_PASSPHRASE }}     # Passphrase de la clave privada almacenada en GitHub Secrets
 
-    # 4. Conectarse al servidor mediante SSH
-    - name: SSH into the server and deploy
+    # 3. Instalar dependencias y construir el proyecto (si es necesario)
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build project
+      run: npm run build --if-present
+
+    # 4. Comprimir los archivos dentro de la carpeta "dist" (no la carpeta "dist" completa)
+    - name: Compress dist files
+      run: tar -czvf dist.tar.gz -C dist .
+
+    # 5. Subir el archivo comprimido al servidor mediante SSH (usando el puerto correcto y la clave SSH configurada)
+    - name: Upload compressed dist to server
       uses: appleboy/ssh-action@v1.2.0
       with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        port: 22
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        passphrase: ${{ secrets.SERVER_PASSPHRASE }}
+        host: ${{ secrets.SERVER_HOST }}    # Dirección del servidor, guardada en GitHub Secrets
+        username: ${{ secrets.SERVER_USERNAME }}   # Nombre de usuario para SSH, guardado en GitHub Secrets
+        port: 18765   # Puerto correcto proporcionado por SiteGround
+        key: ${{ secrets.SERVER_SSH_KEY }}  # Clave SSH
+        passphrase: ${{ secrets.SERVER_PASSPHRASE }}  # Passphrase de la clave SSH (si es necesario)
         script: |
-          # El script que deseas ejecutar en el servidor.
-          cd /ruta/del/directorio
-          # Realiza las operaciones necesarias (por ejemplo, eliminar archivos antiguos, etc.)
-          rm -rf *  # Esto elimina todos los archivos anteriores
-          # Otros comandos que necesitas ejecutar en el servidor
+          # 6. Conexión al servidor: Eliminar los archivos antiguos y descomprimir el archivo comprimido
+          cd /digitalbroperu.com/public_html  # Reemplazar con la ruta de tu proyecto en el servidor
+          
+          # Eliminar los archivos antiguos en la carpeta de destino
+          rm -rf *   # Elimina todos los archivos anteriores en la carpeta pública
+          
+          # Descomprimir el archivo tar.gz que contiene los archivos de dist
+          tar -xzvf dist.tar.gz
+          
+          # (Opcional) Eliminar el archivo comprimido después de descomprimir
+          rm dist.tar.gz
