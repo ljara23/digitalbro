@@ -35,9 +35,9 @@ jobs:
     - name: Upload and deploy using SSH
       uses: appleboy/ssh-action@v1.2.0
       with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        password: ${{ secrets.SSH_PASSWORD }}
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        password: ${{ secrets.SERVER_SSH_KEY }}
         port: 22
         script: |
           # Navegar al directorio donde se encuentran los archivos del sitio web
@@ -47,7 +47,7 @@ jobs:
           rm -rf *  # Elimina todos los archivos en la carpeta de destino, ajusta si es necesario
           
           # Subir el archivo comprimido desde GitHub Actions al servidor usando SCP
-          scp -P 22 dist.tar.gz ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/miweb.com/public_html
+          scp -P 22 dist.tar.gz ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:/miweb.com/public_html
           
           # Descomprimir el archivo tar.gz que contiene los archivos de dist
           tar -xzvf dist.tar.gz
