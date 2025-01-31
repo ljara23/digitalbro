@@ -47,7 +47,7 @@ jobs:
           rm -rf *  # Elimina todos los archivos en la carpeta de destino, ajusta si es necesario
           
           # Subir el archivo comprimido desde GitHub Actions al servidor usando SCP
-          scp -P 22 dist.tar.gz ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:/miweb.com/public_html
+          scp -P 22 dist.tar.gz ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:/digitalbroperu.com/public_html
           
           # Descomprimir el archivo tar.gz que contiene los archivos de dist
           tar -xzvf dist.tar.gz
