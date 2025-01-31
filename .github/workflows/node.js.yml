@@ -2,18 +2,20 @@ name: Deploy to Server
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
+  
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-  deploy:
+  build_and_deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30 
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
+    - name: Checkout the code
+      uses: actions/checkout@v4
+    
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
@@ -21,26 +23,34 @@ jobs:
 
     - name: Install dependencies
       run: npm ci
-
-    - name: Build project
+    
+    - name: Build the project
       run: npm run build --if-present
 
-    - name: Upload dist folder to server using SFTP
-      uses: appleboy/ftp-action@v1
+    # Comprimir los archivos dentro de dist (no la carpeta dist completa)
+    - name: Compress dist files
+      run: tar -czvf dist.tar.gz -C dist .
+    
+    # Subir el archivo comprimido y ejecutar comandos en el servidor
+    - name: Upload and deploy using SSH
+      uses: appleboy/ssh-action@v1.2.0
       with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_SSH_KEY }}
-        password: ${{ secrets.SERVER_USERNAME }}
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
         port: 22
-        source: "dist/*"
-        destination: "/path/to/your/server/directory"  # Asegúrate de reemplazarlo con la ruta correcta en tu servidor
-
-    - name: SSH into server to extract files (if needed)
-      run: |
-        ssh ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_HOST }} << 'EOF'
-          cd /path/to/your/server/directory
-          tar -xzvf dist.tar.gz  # Si deseas comprimirlo previamente en GitHub Actions
-          # o simplemente puedes descomprimir los archivos sin comprimir si no los comprime en GitHub
-        EOF
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Asegúrate de haber agregado tu clave SSH privada como un secreto en GitHub
+        script: |
+          # Navegar al directorio donde se encuentran los archivos del sitio web
+          cd /digitalbroperu.com/public_html
+          
+          # Eliminar los archivos antiguos en el directorio donde se colocarán los nuevos archivos
+          rm -rf *  # Elimina todos los archivos en la carpeta de destino, ajusta si es necesario
+          
+          # Subir el archivo comprimido desde GitHub Actions al servidor usando SCP
+          scp -P 22 dist.tar.gz ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/miweb.com/public_html
+          
+          # Descomprimir el archivo tar.gz que contiene los archivos de dist
+          tar -xzvf dist.tar.gz
+          
+          # Eliminar el archivo comprimido después de descomprimirlo
+          rm dist.tar.gz
