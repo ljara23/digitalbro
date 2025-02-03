@@ -61,7 +61,10 @@ jobs:
         script: |
           # Listar el contenido del directorio raíz (/) del servidor
           echo "Contenido del directorio raíz:"
-          ls -l /
+          ls -l /home/
+
+          # sino
+          ls -l /var/www/
 
           # 6. Conexión al servidor: Eliminar los archivos antiguos y descomprimir el archivo comprimido
           cd digitalbroperu.com/public_html/ # Reemplazar con la ruta de tu proyecto en el servidor
