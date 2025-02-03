@@ -45,6 +45,10 @@ jobs:
     - name: Compress dist files
       run: tar -czvf dist.tar.gz -C dist .
 
+    - name: Verify dist.tar.gz creation
+      run: ls -lh dist.tar.gz
+
+
     # 5. Subir el archivo comprimido al servidor mediante SSH (usando el puerto correcto y la clave SSH configurada)
     - name: Upload compressed dist to server
       uses: appleboy/ssh-action@v1.2.0
