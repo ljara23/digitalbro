@@ -59,7 +59,7 @@ jobs:
           cd /digitalbroperu.com/public_html  # Reemplazar con la ruta de tu proyecto en el servidor
           
           # Eliminar los archivos antiguos en la carpeta de destino
-          rm -rf *   # Elimina todos los archivos anteriores en la carpeta pública
+          # rm -rf *   # Elimina todos los archivos anteriores en la carpeta pública
           
           # Descomprimir el archivo tar.gz que contiene los archivos de dist
           tar -xzvf dist.tar.gz
