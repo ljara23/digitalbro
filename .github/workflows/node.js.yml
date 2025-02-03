@@ -18,7 +18,7 @@ jobs:
     steps:
     # 1. Checkout del código
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     # 3. Instalar dependencias y construir el proyecto
     - name: Install dependencies
@@ -37,11 +37,11 @@ jobs:
 
     # 6. Subir el archivo comprimido al servidor FTP
     - name: Upload compressed dist to FTP server
-      uses: appleboy/ftp-action@v1.2.0
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        host: ${{ secrets.SERVER_FTP }}       # Dirección del servidor FTP, guardada en GitHub Secrets
+        server: ${{ secrets.SERVER_FTP }}       # Dirección del servidor FTP, guardada en GitHub Secrets
         username: ${{ secrets.SERVER_USERMAIL }}  # Nombre de usuario FTP, guardado en GitHub Secrets
         password: ${{ secrets.SERVER_PASSWORD }}  # Contraseña FTP, guardada en GitHub Secrets
         port: 21                             # Puerto estándar de FTP (puedes cambiarlo si tu servidor usa otro)
         local-dir: ./dist.zip                # El archivo comprimido que deseas subir
-        remote-dir: /digitalbroperu.com/public_html/           # El directorio remoto en tu servidor (ajustar a la ruta correcta)
+        server-dir: /digitalbroperu.com/public_html/           # El directorio remoto en tu servidor (ajustar a la ruta correcta)
