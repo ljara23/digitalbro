@@ -56,7 +56,7 @@ jobs:
         passphrase: ${{ secrets.SERVER_PASSPHRASE }}  # Passphrase de la clave SSH (si es necesario)
         script: |
           # 6. Conexión al servidor: Eliminar los archivos antiguos y descomprimir el archivo comprimido
-          cd /digitalbroperu.com/public_html  # Reemplazar con la ruta de tu proyecto en el servidor
+          cd digitalbroperu.com/public_html/ # Reemplazar con la ruta de tu proyecto en el servidor
           
           # Eliminar los archivos antiguos en la carpeta de destino
           # rm -rf *   # Elimina todos los archivos anteriores en la carpeta pública
@@ -65,4 +65,4 @@ jobs:
           tar -xzvf dist.tar.gz
           
           # (Opcional) Eliminar el archivo comprimido después de descomprimir
-          rm dist.tar.gz
+          #rm dist.tar.gz
