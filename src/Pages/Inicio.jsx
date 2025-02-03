@@ -22,7 +22,7 @@ import logodark from '../assets/logo-dark.svg'
 import logopr from '../assets/logo-pr.svg'
 
 const navigation = [
-  { name: 'Home', href: '#' },
+  { name: 'Inicio', href: '#' },
   { name: 'Servicios', href: '#services' },
   { name: 'Portafolio', href: '#portafolio' },
   { name: 'Contactanos', href: '#contact' },
@@ -62,7 +62,7 @@ export default function Inicio(){
     return(
         <>
             <nav aria-label="Global" className="fixed w-full flex items-center justify-center p-6 lg:px-8 z-50 backdrop-blur-sm">
-                <div className={`flex items-center justify-between lg:w-full font-normal ${isDark ? 'text-darknight hover:text-darknight' : 'text-beige hover:text-jade'} transition-colors duration-200`}>
+                <div className={`flex items-center justify-between lg:w-full font-normal ${isDark ? 'text-darknigth' : 'text-beige'} transition-colors duration-200`}>
                     {/* Logo */}
                     <a href="#" className="flex -m-1.5 p-1.5 items-center transform transition-transform duration-200 hover:scale-110">                    
                         <img
@@ -76,7 +76,7 @@ export default function Inicio(){
                     {/* Menú de navegación */}
                     <div className="hidden lg:flex lg:gap-x-12 ml-6">
                     {navigation.map((item) => (
-                        <a key={item.name} href={item.href} className="text-sm text-slate-600 transform transition-transform duration-200 hover:translate-y-1">
+                        <a key={item.name} href={item.href} className={`text-sm text-slate-600 transform transition-transform duration-200 hover:translate-y-1  ${isDark ? 'hover:text-darknight' : 'hover:text-jade'}`}>
                         {item.name}
                         </a>
                     ))}
@@ -156,7 +156,7 @@ export default function Inicio(){
                                 </p>                            
                             </div> 
                             <div className="flex justify-end">
-                                <a href="#services" className="transition ease-in-out p-1 delay-150 bg-gradient-to-r from-jade to-duck text-darknight rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
+                                <a href="#services" className="transition ease-in-out p-1 bg-gradient-to-r from-jade to-duck text-darknight rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                     <span className="flex item-center items-center font-extraBold xl:text-2xl text-xs">Más info<img alt="Logo" src={logodark} className="h-6 w-auto"/></span>
                                 </a>
                             </div>   
@@ -168,29 +168,29 @@ export default function Inicio(){
                 <div className="mb-8 xl:h-[10vh]">
                     <ul className="flex flex-wrap -mb-px text-sm justify-center items-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
                         <li className="me-4" role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="web-a-medida-tab" data-tabs-target="#web-a-medida" type="button" role="tab" aria-controls="web-a-medida" aria-selected="false">Web a Medida</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="web-a-medida-tab" data-tabs-target="#web-a-medida" type="button" role="tab" aria-controls="web-a-medida" aria-selected="false">Web a Medida</button>
                         </li>
                         <li className="me-4" role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="diseno-y-desarrollo-web-tab" data-tabs-target="#diseno-y-desarrollo-web" type="button" role="tab" aria-controls="diseno-y-desarrollo-web" aria-selected="false">Diseño y Desarrollo Web</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="diseno-y-desarrollo-web-tab" data-tabs-target="#diseno-y-desarrollo-web" type="button" role="tab" aria-controls="diseno-y-desarrollo-web" aria-selected="false">Diseño y Desarrollo Web</button>
                         </li>
                         <li className="me-4" role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="marketing-digital-tab" data-tabs-target="#marketing-digital" type="button" role="tab" aria-controls="marketing-digital" aria-selected="false">Marketing Digital</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="marketing-digital-tab" data-tabs-target="#marketing-digital" type="button" role="tab" aria-controls="marketing-digital" aria-selected="false">Marketing Digital</button>
                         </li>
                         <li className="me-4" role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="chatbot-tab" data-tabs-target="#chatbot" type="button" role="tab" aria-controls="chatbot" aria-selected="false">Chatbot</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="chatbot-tab" data-tabs-target="#chatbot" type="button" role="tab" aria-controls="chatbot" aria-selected="false">Chatbot</button>
                         </li>
                         <li className="me-4" role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="ecommerce-tab" data-tabs-target="#ecommerce" type="button" role="tab" aria-controls="ecommerce" aria-selected="false">E-commerce</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="ecommerce-tab" data-tabs-target="#ecommerce" type="button" role="tab" aria-controls="ecommerce" aria-selected="false">E-commerce</button>
                         </li>
                         <li role="presentation">
-                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200" id="consultoria-tab" data-tabs-target="#consultoria" type="button" role="tab" aria-controls="consultoria" aria-selected="false">Consultoría</button>
+                            <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="consultoria-tab" data-tabs-target="#consultoria" type="button" role="tab" aria-controls="consultoria" aria-selected="false">Consultoría</button>
                         </li>
                     </ul>
                 </div>
                 <div id="default-tab-content" className="flex flex-col justify-center items-center w-full lg:h-[60vh] xl:h-[50vh]">
                     <div className="hidden flex items-center justify-between p-4 rounded-lg" id="web-a-medida" role="tabpanel" aria-labelledby="web-a-medida-tab">
                         <div className="itemnav flex flex-1 p-2 w-[40rem]">
-                            <p className="text-sm bg-beige text-darknight p-8 rounded-[25px] z-20">
+                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
                                 Desarrollamos sitios web totalmente personalizados según las <strong>necesidades y objetivos específicos</strong> de tu empresa. 
                             </p>
                         </div>
@@ -198,13 +198,13 @@ export default function Inicio(){
                             <img
                                 alt=""
                                 src={nav1}
-                                className="h-80 w-auto rounded-[25px]"
+                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
                             />
                         </div>
                     </div>
                     <div className="hidden flex flex-row-reverse  items-center justify-between p-4 rounded-lg" id="diseno-y-desarrollo-web" role="tabpanel" aria-labelledby="diseno-y-desarrollo-web-tab">
                         <div className="itemnav flex flex-1 p-2 w-[40rem]">
-                            <p className="text-sm bg-beige text-darknight p-8 rounded-[25px] z-20">
+                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
                                 Creamos sitios web que no solo se ven increíbles, sino que también funcionan a la perfección. Desde <strong>la concepción</strong> de la idea hasta el <strong>desarrollo completo</strong>.
                             </p>
                         </div>
@@ -212,13 +212,13 @@ export default function Inicio(){
                             <img
                                 alt=""
                                 src={nav2}
-                                className="h-80 w-auto rounded-[25px]"
+                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
                             />
                         </div>
                     </div>
                     <div className="hidden flex items-center justify-between p-4 rounded-lg" id="marketing-digital" role="tabpanel" aria-labelledby="marketing-digital-tab">
                         <div className="itemnav flex flex-1 p-2 w-[40rem]">
-                            <p className="text-sm bg-beige text-darknight p-8 rounded-[25px] z-20">
+                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
                                 Impulsamos tu presencia online con <strong>estrategias</strong> de marketing digital personalizadas, desde <strong>redes sociales</strong> hasta publicidad online, optimizando con <strong>análisis de datos</strong> para aumentar tu visibilidad y conectar con tu <strong>público objetivo.</strong>
                             </p>
                         </div>
@@ -226,13 +226,13 @@ export default function Inicio(){
                             <img
                                 alt=""
                                 src={nav3}
-                                className="h-80 w-auto rounded-[25px]"
+                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
                             />
                         </div>
                     </div>
                     <div className="hidden flex flex-row-reverse items-center justify-between p-4 rounded-lg" id="chatbot" role="tabpanel" aria-labelledby="chatbot-tab">
                         <div className="itemnav flex flex-1 p-2 w-[40rem]">
-                            <p className="text-sm bg-beige text-darknight p-8 rounded-[25px] z-20">
+                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
                                 Implementamos chatbots y CRM para mejorar la <strong>atención al cliente</strong>, ofreciendo respuestas instantáneas y personalizadas, <strong>optimizando</strong> la eficiencia.
                             </p>
                         </div>
@@ -240,13 +240,13 @@ export default function Inicio(){
                             <img
                                 alt=""
                                 src={nav4}
-                                className="h-80 w-auto rounded-[25px]"
+                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
                             />
                         </div>
                     </div>
                     <div className="hidden flex items-center justify-between p-4 rounded-lg" id="ecommerce" role="tabpanel" aria-labelledby="ecommerce-tab">
                         <div className="itemnav flex flex-1 p-2 w-[40rem]">
-                            <p className="text-sm bg-beige text-darknight p-8 rounded-[25px] z-20">
+                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
                                 Desarrollamos tiendas online completas y funcionales, con diseño atractivo, <strong>experiencia de compra</strong> fluida, <strong>pagos seguros</strong> y <strong>optimización</strong> para aumentar ventas.
                             </p>
                         </div>
@@ -254,14 +254,14 @@ export default function Inicio(){
                             <img
                                 alt=""
                                 src={nav5}
-                                className="h-80 w-auto rounded-[25px]"
+                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
                             />
                         </div>    
                     
                     </div>
                     <div className="hidden flex flex-row-reverse items-center justify-between p-4 rounded-lg" id="consultoria" role="tabpanel" aria-labelledby="consultoria-tab">
                         <div className="itemnav flex flex-1 p-2 w-[40rem]">
-                            <p className="text-sm bg-beige text-darknight p-8 rounded-[25px] z-20">
+                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
                                 Ofrecemos consultoría especializada para <strong>optimizar operaciones digitales</strong>, implementar <strong>soluciones tecnológicas</strong> y estrategias que aumenten la <strong>eficiencia y competitividad</strong> de tu empresa.
                             </p>
                         </div>
@@ -269,7 +269,7 @@ export default function Inicio(){
                             <img
                                 alt=""
                                 src={nav6}
-                                className="h-80 w-auto rounded-[25px]"
+                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
                             />
                         </div>
                     </div>
@@ -284,13 +284,13 @@ export default function Inicio(){
                                 <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
                                         {/* Imagen del carrusel */}
-                                        <img src={portafolio1} className="w-[25rem] rounded-lg" alt="..."/>
+                                        <img src={portafolio1} className="xl:w-[30rem] w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
                                             <h2 className="text-2xl font-bold text-darknight">Página web & E-commerce</h2>
-                                            <p className="text-darknight">Web que combina una sección informativa sobre arquitectura con una tienda para interiores</p>
+                                            <p className="xl:text-xl text-darknight">Web que combina una sección informativa sobre arquitectura con una tienda para interiores</p>
                                             <div className="text-center md:text-right">
-                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
+                                                <button className="transition ease-in-out p-1   bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                                     <span className="flex item-center items-center">lo quiero<img alt="Logo" src={logopr} className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
@@ -304,13 +304,13 @@ export default function Inicio(){
                                 <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
                                         {/* Imagen del carrusel */}
-                                        <img src={portafolio2} className="w-[25rem] rounded-lg" alt="..."/>
+                                        <img src={portafolio2} className="xl:w-[30rem] w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
                                             <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo landing page</h2>
-                                            <p className="text-darknight">Se desarrolló una landing page para una Agencia de capacitación a emprendedores</p>
+                                            <p className="xl:text-xl text-darknight">Se desarrolló una landing page para una Agencia de capacitación a emprendedores</p>
                                             <div className="text-center md:text-right">
-                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
+                                                <button className="transition ease-in-out p-1  bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                                     <span className="flex items-center">Lo quiero<img alt="Logo" src={logopr} className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
@@ -323,13 +323,13 @@ export default function Inicio(){
                                 <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
                                         {/* Imagen del carrusel */}
-                                        <img src={portafolio3} className="w-[25rem] rounded-lg" alt="..."/>
+                                        <img src={portafolio3} className="xl:w-[30rem] w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
                                             <h2 className="text-2xl font-bold text-darknight">Desarrollo web y mailing marketing</h2>
-                                            <p className="text-darknight">Se realizó creación de mailings a medida y gestión de contenido para empresa se seguros</p>
+                                            <p className="xl:text-xl text-darknight">Se realizó creación de mailings a medida y gestión de contenido para empresa se seguros</p>
                                             <div className="text-center md:text-right">
-                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
+                                                <button className="transition ease-in-out p-1  bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                                     <span className="flex items-center">Lo quiero<img alt="Logo" src={logopr} className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
@@ -342,13 +342,13 @@ export default function Inicio(){
                                 <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
                                         {/* Imagen del carrusel */}
-                                        <img src={portafolio4} className="w-[25rem] rounded-lg" alt="..."/>
+                                        <img src={portafolio4} className="xl:w-[30rem] w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
                                             <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo web</h2>
-                                            <p className="text-darknight">Se trabajó en el diseño y desarrollo web para empresa del rubro financiero automovilístico.</p>
+                                            <p className="xl:text-xl text-darknight">Se trabajó en el diseño y desarrollo web para empresa del rubro financiero automovilístico.</p>
                                             <div className="text-center md:text-right">
-                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
+                                                <button className="transition ease-in-out p-1  bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                                     <span className="flex items-center">Lo quiero<img alt="Logo" src={logopr} className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
@@ -361,13 +361,13 @@ export default function Inicio(){
                                 <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <div className="flex flex-col md:flex-row items-center"> {/* Modificado aquí */}
                                         {/* Imagen del carrusel */}
-                                        <img src={portafolio5} className="w-[25rem] rounded-lg" alt="..."/>
+                                        <img src={portafolio5} className="xl:w-[30rem] w-[25rem] rounded-lg" alt="..."/>
                                         {/* Texto al costado de la imagen */}
                                         <div className="ml-8 mt-4 md:mt-0 w-80 text-center md:text-right"> {/* Modificado aquí */}
                                             <h2 className="text-2xl font-bold text-darknight">Diseño y desarrollo de multi web</h2>
-                                            <p className="text-darknight">Se realizó una multi web para empresa del rubro legal que ofece capacitaciones y servicios corporativos.</p>
+                                            <p className="xl:text-xl text-darknight">Se realizó una multi web para empresa del rubro legal que ofece capacitaciones y servicios corporativos.</p>
                                             <div className="text-center md:text-right">
-                                                <button className="transition ease-in-out p-1 delay-150 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
+                                                <button className="transition ease-in-out p-1 bg-darknight text-duck rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-200">
                                                     <span className="flex items-center">Lo quiero<img alt="Logo" src={logopr} className="h-8 w-auto"/></span>
                                                 </button>
                                             </div> 
@@ -400,7 +400,8 @@ export default function Inicio(){
                         <img
                             alt="Slider contáctanos"
                             src={slidercontact}
-                            className="h-[80vh] z-0 absolute right-0 top-1/2 transform -translate-y-1/2 opacity-50 rounded-[25px]"
+                            className="h-[80vh] sm:h-[60vh] md:h-[50vh] lg:h-[80vh] z-0 absolute right-0 top-1/2 transform -translate-y-1/2 opacity-50 rounded-[25px]"
+
                         />                       
                         <div className="rounded-[25px] text-jade z-10">
                             <div className="lg:text-6xl xl:text-8xl text-4xl font-extraBold tracking-normal leading-2 tracking-tighter text-left">
