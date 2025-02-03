@@ -25,11 +25,14 @@ jobs:
       run: |
         mkdir -p ~/.ssh
         echo "$SERVER_SSH_KEY" > ~/.ssh/id_rsa
-        echo "$SERVER_PASSPHRASE" | ssh-add ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
+        # Iniciar el agente SSH
+        eval "$(ssh-agent -s)"
+        # Agregar la clave SSH al agente
+        echo "$SERVER_PASSPHRASE" | ssh-add ~/.ssh/id_rsa
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}   # Clave privada almacenada en GitHub Secrets
-        SSH_PASSPHRASE: ${{ secrets.SERVER_PASSPHRASE }}     # Passphrase de la clave privada almacenada en GitHub Secrets
+        SERVER_SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}   # Clave privada almacenada en GitHub Secrets
+        SERVER_PASSPHRASE: ${{ secrets.SERVER_PASSPHRASE }}     # Passphrase de la clave privada almacenada en GitHub Secrets
 
     # 3. Instalar dependencias y construir el proyecto (si es necesario)
     - name: Install dependencies
