@@ -59,6 +59,10 @@ jobs:
         key: ${{ secrets.SERVER_SSH_KEY }}  # Clave SSH
         passphrase: ${{ secrets.SERVER_PASSPHRASE }}  # Passphrase de la clave SSH (si es necesario)
         script: |
+          # Verificar si el archivo se subió correctamente
+          echo "Archivos en el servidor antes de descomprimir:"
+          ls -l /digitalbroperu.com/public_html/
+          
           # 6. Conexión al servidor: Eliminar los archivos antiguos y descomprimir el archivo comprimido
           cd digitalbroperu.com/public_html/ # Reemplazar con la ruta de tu proyecto en el servidor
           
