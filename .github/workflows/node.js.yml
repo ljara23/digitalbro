@@ -59,12 +59,9 @@ jobs:
         key: ${{ secrets.SERVER_SSH_KEY }}  # Clave SSH
         passphrase: ${{ secrets.SERVER_PASSPHRASE }}  # Passphrase de la clave SSH (si es necesario)
         script: |
-          # Listar el contenido del directorio raíz (/) del servidor
-          echo "Contenido del directorio raíz:"
-          ls -l /home/
+          # search public
+          sudo find / -type d -name "public_html"
 
-          # sino
-          ls -l /var/www/
 
           # 6. Conexión al servidor: Eliminar los archivos antiguos y descomprimir el archivo comprimido
           cd digitalbroperu.com/public_html/ # Reemplazar con la ruta de tu proyecto en el servidor
