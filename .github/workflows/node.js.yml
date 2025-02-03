@@ -44,4 +44,4 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}  # Contraseña FTP, guardada en GitHub Secrets
         port: 21                             # Puerto estándar de FTP (puedes cambiarlo si tu servidor usa otro)
         local-dir: ./dist.zip                # El archivo comprimido que deseas subir
-        remote-dir: /public_html/           # El directorio remoto en tu servidor (ajustar a la ruta correcta)
+        remote-dir: /digitalbroperu.com/public_html/           # El directorio remoto en tu servidor (ajustar a la ruta correcta)
