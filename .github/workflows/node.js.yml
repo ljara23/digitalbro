@@ -20,21 +20,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # 2. Configuración de la clave SSH (usando passphrase)
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SERVER_SSH_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        # Iniciar el agente SSH
-        eval "$(ssh-agent -s)"
-        # Agregar la clave SSH al agente
-        echo "$SERVER_PASSPHRASE" | ssh-add ~/.ssh/id_rsa
-      env:
-        SERVER_SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}   # Clave privada almacenada en GitHub Secrets
-        SERVER_PASSPHRASE: ${{ secrets.SERVER_PASSPHRASE }}     # Passphrase de la clave privada almacenada en GitHub Secrets
-
-    # 3. Instalar dependencias y construir el proyecto (si es necesario)
+    # 3. Instalar dependencias y construir el proyecto
     - name: Install dependencies
       run: npm ci
 
@@ -43,34 +29,19 @@ jobs:
 
     # 4. Comprimir los archivos dentro de la carpeta "dist" (no la carpeta "dist" completa)
     - name: Compress dist files
-      run: tar -czvf dist.tar.gz -C dist .
+      run: zip -r dist.zip dist/
+    
+    # 5. Verificación de que el archivo zip se creó correctamente
+    - name: Verify dist.zip creation
+      run: ls -lh dist.zip
 
-    - name: Verify dist.tar.gz creation
-      run: ls -lh dist.tar.gz
-
-
-    # 5. Subir el archivo comprimido al servidor mediante SSH (usando el puerto correcto y la clave SSH configurada)
-    - name: Upload compressed dist to server
-      uses: appleboy/ssh-action@v1.2.0
+    # 6. Subir el archivo comprimido al servidor FTP
+    - name: Upload compressed dist to FTP server
+      uses: appleboy/ftp-action@v1.2.0
       with:
-        host: ${{ secrets.SERVER_HOST }}    # Dirección del servidor, guardada en GitHub Secrets
-        username: ${{ secrets.SERVER_USERNAME }}   # Nombre de usuario para SSH, guardado en GitHub Secrets
-        port: 18765   # Puerto correcto proporcionado por SiteGround
-        key: ${{ secrets.SERVER_SSH_KEY }}  # Clave SSH
-        passphrase: ${{ secrets.SERVER_PASSPHRASE }}  # Passphrase de la clave SSH (si es necesario)
-        script: |
-          # Listar el contenido del directorio raíz (/) del servidor
-          echo "Contenido del directorio raíz:"
-          ls -l /var/www/
-
-          # 6. Conexión al servidor: Eliminar los archivos antiguos y descomprimir el archivo comprimido
-          cd digitalbroperu.com/public_html/ # Reemplazar con la ruta de tu proyecto en el servidor
-          
-          # Eliminar los archivos antiguos en la carpeta de destino
-          # rm -rf *   # Elimina todos los archivos anteriores en la carpeta pública
-          
-          # Descomprimir el archivo tar.gz que contiene los archivos de dist
-          tar -xzvf dist.tar.gz
-          
-          # (Opcional) Eliminar el archivo comprimido después de descomprimir
-          #rm dist.tar.gz
+        host: ${{ secrets.SERVER_FTP }}       # Dirección del servidor FTP, guardada en GitHub Secrets
+        username: ${{ secrets.SERVER_USERMAIL }}  # Nombre de usuario FTP, guardado en GitHub Secrets
+        password: ${{ secrets.SERVER_PASSWORD }}  # Contraseña FTP, guardada en GitHub Secrets
+        port: 21                             # Puerto estándar de FTP (puedes cambiarlo si tu servidor usa otro)
+        local-dir: ./dist.zip                # El archivo comprimido que deseas subir
+        remote-dir: /public_html/           # El directorio remoto en tu servidor (ajustar a la ruta correcta)
