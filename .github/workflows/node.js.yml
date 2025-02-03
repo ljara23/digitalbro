@@ -45,4 +45,3 @@ jobs:
         port: 21                             # Puerto estándar de FTP (puedes cambiarlo si tu servidor usa otro)
         local-dir: ./dist/                # El archivo comprimido que deseas subir
         server-dir: /digitalbroperu.com/public_html/           # El directorio remoto en tu servidor (ajustar a la ruta correcta)
-        dangerous-clean-slate	: true
