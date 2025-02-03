@@ -28,12 +28,12 @@ jobs:
       run: npm run build --if-present
 
     # 4. Comprimir los archivos dentro de la carpeta "dist" (no la carpeta "dist" completa)
-    - name: Compress dist files
-      run: zip -r dist.zip dist/
+    #- name: Compress dist files
+    #  run: zip -r dist.zip dist/
     
     # 5. Verificación de que el archivo zip se creó correctamente
-    - name: Verify dist.zip creation
-      run: ls -lh dist.zip
+    #- name: Verify dist.zip creation
+    #  run: ls -lh dist.zip
 
     # 6. Subir el archivo comprimido al servidor FTP
     - name: Upload compressed dist to FTP server
@@ -45,3 +45,4 @@ jobs:
         port: 21                             # Puerto estándar de FTP (puedes cambiarlo si tu servidor usa otro)
         local-dir: ./dist/                # El archivo comprimido que deseas subir
         server-dir: /digitalbroperu.com/public_html/           # El directorio remoto en tu servidor (ajustar a la ruta correcta)
+        dangerous-clean-slate	: true
