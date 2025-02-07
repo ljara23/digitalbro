@@ -84,63 +84,56 @@ export default function Inicio(){
 
                     {/* Menú móvil */}
                     <div className="flex lg:hidden ml-6">
-                    <button
-                        type="button"
-                        onClick={() => setMobileMenuOpen(true)}
-                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                    >
-                        <span className="sr-only">Open main menu</span>
-                        <Bars3Icon aria-hidden="true" className="size-6" />
-                    </button>
+                        <button
+                            type="button"
+                            onClick={() => setMobileMenuOpen(true)}
+                            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                        >
+                            <span className="sr-only">Open main menu</span>
+                            <Bars3Icon aria-hidden="true" className="size-6" />
+                        </button>
                     </div>
                 </div>
             </nav>
             <header className="relative inset-x top-0 z-40 h-screen bg-zinc-950">
                 <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                 <div className="fixed inset-0 z-20" />
-                <DialogPanel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                    <div className="flex justify-between items-center">
-                    <a href="#" className="-m-1.5 p-1.5">
-                        <span className="sr-only">Your Company</span>
-                        <img
-                        alt=""
-                        src={logopr}
-                        className="h-8 w-auto"
-                        />
-                    </a>
-                    <button
-                        type="button"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                    >
-                        <span className="sr-only">Close menu</span>
-                        <XMarkIcon aria-hidden="true" className="size-6" />
-                    </button>
-                    </div>
-                    <div className="mt-6 flow-root">
-                    <div className="-my-6 divide-y divide-gray-500/10">
-                        <div className="space-y-2 py-6">
-                        {navigation.map((item) => (
-                            <a
-                            key={item.name}
-                            href={item.href}
-                            className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-light text-gray-900 hover:bg-gray-50"
-                            >
-                            {item.name}
-                            </a>
-                        ))}
-                        </div>
-                        <div className="py-6">
-                        <a
-                            href="#"
-                            className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-light text-gray-900 hover:bg-gray-50"
-                        >
-                            Log in
+                    <DialogPanel className="fixed ease-linear inset-y-0 right-0 z-[60] bg-gradient-to-r from-jade to-duck w-full overflow-y-auto bg-white px-6 py-6">
+                        <div className="flex justify-between items-center">                        
+                        <a href="#" className="flex -m-1.5 p-1.5 items-center transform transition-transform duration-200 hover:scale-110">                    
+                            <img
+                                alt="Logo"
+                                src={logodark}
+                                className="h-8 w-auto"
+                            />
+                            <span className="font-semiBold inline-block align-text-bottom tracking-tighter">DIGITAL BRO</span>
                         </a>
+                        <button
+                            type="button"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                        >
+                            <span className="sr-only">Close menu</span>
+                            <XMarkIcon aria-hidden="true" className="size-6 z-50" />
+                        </button>
                         </div>
-                    </div>
-                    </div>
-                </DialogPanel>
+                        <div className="mt-6 flow-root">
+                            <div className="-my-6">
+                                <div className="space-y-2 py-6">
+                                {navigation.map((item) => (
+                                    <a
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="-mx-3 font-normal block rounded-lg px-3 py-2 text-base/7 text-gray-900 hover:bg-gray-50"
+                                    >
+                                    {item.name}
+                                    </a>
+                                ))}
+                                </div>
+                            </div>
+                        </div>
+                    </DialogPanel>
                 </Dialog>
                 <div className="container m-auto">
                     <div className="flex justify-end items-center mx-auto font-sans h-screen relative">                        
@@ -189,12 +182,12 @@ export default function Inicio(){
                 </div>
                 <div id="default-tab-content" className="flex flex-col justify-center items-center w-full lg:h-[60vh] xl:h-[50vh]">
                     <div className="hidden flex items-center justify-between p-4 rounded-lg" id="web-a-medida" role="tabpanel" aria-labelledby="web-a-medida-tab">
-                        <div className="itemnav flex flex-1 p-2 w-[40rem]">
+                        <div className="itemnav flex flex-1 p-2 lg:w-[40rem]">
                             <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
                                 Desarrollamos sitios web totalmente personalizados según las <strong>necesidades y objetivos específicos</strong> de tu empresa. 
                             </p>
                         </div>
-                        <div className="flex-1 p-2 flex justify-center">
+                        <div className="flex-1 p-2 lg:flex justify-center">
                             <img
                                 alt=""
                                 src={nav1}
