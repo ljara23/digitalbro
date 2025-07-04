@@ -23,6 +23,17 @@ export default {
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
     },
+    fontWeight: {
+      thin: 100,   // Define el peso "thin" como 100
+      extraLight: 200, // Agrega más pesos si lo necesitas
+      light: 300,  // Agrega más pesos si lo necesitas
+      regular: 400, // Agrega más pesos si lo necesitas
+      medium: 500, // Agrega más pesos si lo necesitas
+      semiBold: 600, // Agrega más pesos si lo necesitas
+      bold: 700, // Agrega más pesos si lo necesitas
+      extraBold: 800, // Agrega más pesos si lo necesitas
+      black: 900, // Agrega más pesos si lo necesitas
+    },
     extend: {      
       spacing: {
         '128': '32rem',
