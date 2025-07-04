@@ -271,7 +271,7 @@ export default function Inicio(){
             <section className="bg-gradient-to-r from-jade to-duck z-10" id="portafolio">
                 <div className="container m-auto h-screen flex flex-col justify-center items-center">
                     <div id="controls-carousel" className="relative w-full overflow-hidden" data-carousel="static">
-                        <div className="relative h-80 overflow-hidden rounded-[25px] lg:h-96 md:h-96">
+                        <div className="relative h-screen overflow-hidden rounded-[25px] lg:h-96 md:h-96">
                             {/* Primer slide */}
                             <div className="carousel-item duration-700 ease-in-out transform transition-all bg-gradient-to-r from-jade to-duck" data-carousel-item="active">
                                 <div className="absolute flex w-full justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
