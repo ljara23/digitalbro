@@ -136,7 +136,7 @@ export default function Inicio(){
                     </DialogPanel>
                 </Dialog>
                 <div className="container m-auto">
-                    <div className="flex justify-end items-center mx-auto font-sans h-screen relative">                        
+                    <div className="flex justify-end items-center mx-auto font-sans min-h-screen relative">                        
                         <img
                             alt="Slider 1"
                             src={slider1}
@@ -157,7 +157,7 @@ export default function Inicio(){
                     </div>
                 </div>
             </header>
-            <section className="container m-auto h-screen flex flex-col justify-center items-center z-10" id="services">
+            <section className="container m-auto min-h-screen flex flex-col justify-center items-center z-10" id="services">
                 <div className="mb-8 xl:h-[10vh]">
                     <ul className="flex flex-wrap -mb-px text-sm justify-center items-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
                         <li className="me-4" role="presentation">
@@ -269,7 +269,7 @@ export default function Inicio(){
                 </div>
             </section>
             <section className="bg-gradient-to-r from-jade to-duck z-10" id="portafolio">
-                <div className="container m-auto h-screen flex flex-col justify-center items-center">
+                <div className="container m-auto min-h-screen flex flex-col justify-center items-center">
                     <div id="controls-carousel" className="relative w-full overflow-hidden" data-carousel="static">
                         <div className="relative h-screen overflow-hidden rounded-[25px] lg:h-96 md:h-96">
                             {/* Primer slide */}
