@@ -109,7 +109,7 @@ const ContactForm = ({ logodark }) => {
                     className="px-2 xl:text-2xl py-1 rounded-full text-xs text-beige text-center bg-darknight border-2 border-beige placeholder:text-beige appearance-none"
                     required
                 >
-                    <option value="">--Seleccionar--</option>
+                    <option value="" className="appearance-none text-center">--Seleccionar--</option>
                     {options.map((option) => (
                         <option key={option.id} value={option.label}>
                             {option.label}
