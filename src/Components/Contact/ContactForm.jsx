@@ -106,7 +106,7 @@ const ContactForm = ({ logodark }) => {
                     name="option"
                     value={formData.option}
                     onChange={handleChange}
-                    className="px-2 xl:text-2xl py-1 rounded-full text-xs text-beige text-center bg-darknight border-2 border-beige placeholder:text-beige"
+                    className="px-2 xl:text-2xl py-1 rounded-full text-xs text-beige text-center bg-darknight border-2 border-beige placeholder:text-beige appearance-none"
                     required
                 >
                     <option value="">--Seleccionar--</option>
