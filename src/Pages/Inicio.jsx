@@ -389,7 +389,8 @@ export default function Inicio(){
             </section>
             <section className="bg-darknight z-10" id="contact">  
                 <div className="container m-auto">
-                    <div className="flex justify-around items-center mx-auto font-sans h-screen relative">  
+                    <div className="flex flex-col md:flex-row justify-center md:justify-around items-center mx-auto font-sans min-h-screen relative gap-8 px-4 py-8">
+    
                         <img
                             alt="Slider contáctanos"
                             src={slidercontact}
