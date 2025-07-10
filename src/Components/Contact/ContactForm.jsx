@@ -1,13 +1,18 @@
 import { useState } from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 
 const ContactForm = ({ logodark }) => {
+
+    const [captchaToken, setCaptchaToken] = useState('');
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
         option: '',
         description:'',
+        website: '', //honeypot
     });
 
     const [statusMessage, setStatusMessage] = useState('');
@@ -33,37 +38,52 @@ const ContactForm = ({ logodark }) => {
         // Mostrar un mensaje de espera
         setStatusMessage('Enviando...');
 
-        try {
-            const response = await fetch('https://digitalbroperu.com/mailer/contact.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
+        if (formData.website.trim() !== '') {
+            setStatusMessage('Detección de spam.');
+            return;
+        }
+
+        const bodyData = {
+            ...formData,    
+            captchaToken,   // reCAPTCHA
+          };
+
+        
+        const response = await fetch('https://digitalbroperu.com/mailer/contact.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(bodyData),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            setStatusMessage('Correo enviado correctamente');
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                option: '',
+                description: '',
             });
-
-            const result = await response.json();
-
-            if (result.success) {
-                setStatusMessage('Correo enviado correctamente');
-                setFormData({
-                    name: '',
-                    email: '',
-                    phone: '',
-                    option: '',
-                    description: '',
-                });
-            } else {
-                setStatusMessage('Hubo un error al enviar el correo');
-            }
-        } catch (error) {
-            setStatusMessage('Error de conexión');
+        } else {
+            setStatusMessage('Hubo un error al enviar el correo');
         }
     };
 
     return (
         <form onSubmit={handleSubmit} className="space-y-4 bg-darknight p-[2rem] rounded-[25px] border-2 border-beige">
             <h2 className="text-center xl:text-4xl text-2xl text-beige font-bold">Contáctanos</h2>
+            <input
+            type="text"
+            name="website"
+            value={formData.website}
+            onChange={handleChange}
+            style={{ display: 'none' }}
+            tabIndex="-1"
+            />
             <div className="flex flex-col">
                 <input
                     type="text"
@@ -134,8 +154,12 @@ const ContactForm = ({ logodark }) => {
                     <span className="flex item-center items-center font-extraBold xl:text-2xl text-xs">Enviar<img alt="Logo" src={logodark} className="h-6 w-auto"/></span>
                 </button>
             </div>
-
+            <ReCAPTCHA
+                sitekey="6LfS_X0rAAAAANRhLjdFICZlbLNTffIu0b24WGC4"
+                onChange={(value) => setCaptchaToken(value)}
+            />
             {statusMessage && <p className="text-center text-beige mt-4">{statusMessage}</p>}
+
         </form>
     );
 };
