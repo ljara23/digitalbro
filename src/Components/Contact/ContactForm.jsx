@@ -151,7 +151,7 @@ const ContactForm = ({ logodark }) => {
                     <span className="flex item-center items-center font-extraBold xl:text-2xl text-xs">Enviar<img alt="Logo" src={logodark} className="h-6 w-auto"/></span>
                 </button>
             </div>
-            {statusMessage && <span className="text-center text-beige mt-4">{statusMessage}</span>}
+            {statusMessage && <p className="text-center text-beige mt-4">{statusMessage}</p>}
         </form>
     );
 };
