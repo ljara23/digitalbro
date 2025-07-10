@@ -142,7 +142,7 @@ export default function Inicio(){
                             src={slider1}
                             className="h-[80vh] z-0 absolute left-0 right-0 top-1/2 transform -translate-y-1/2 opacity-50 rounded-[25px]"
                         />
-                        <div className="rounded-[25px] text-jade z-10">
+                        <div className="rounded-[25px] text-jade z-10 lg:p-0 p-4">
                             <div className="lg:text-6xl xl:text-8xl text-4xl font-extraBold tracking-normal leading-2 tracking-tighter text-right">
                                 <p>
                                     impulsamos<br></br>transformamos<br></br>tu marca
@@ -160,22 +160,22 @@ export default function Inicio(){
             <section className="container m-auto min-h-screen flex flex-col justify-center items-center z-10" id="services">
                 <div className="mb-8 xl:h-[10vh]">
                     <ul className="flex flex-wrap -mb-px text-sm justify-center items-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
-                        <li className="me-4" role="presentation">
+                        <li className="me-4 p-1" role="presentation">
                             <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="web-a-medida-tab" data-tabs-target="#web-a-medida" type="button" role="tab" aria-controls="web-a-medida" aria-selected="false">Web a Medida</button>
                         </li>
-                        <li className="me-4" role="presentation">
+                        <li className="me-4 p-1" role="presentation">
                             <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="diseno-y-desarrollo-web-tab" data-tabs-target="#diseno-y-desarrollo-web" type="button" role="tab" aria-controls="diseno-y-desarrollo-web" aria-selected="false">Diseño y Desarrollo Web</button>
                         </li>
-                        <li className="me-4" role="presentation">
+                        <li className="me-4 p-1" role="presentation">
                             <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="marketing-digital-tab" data-tabs-target="#marketing-digital" type="button" role="tab" aria-controls="marketing-digital" aria-selected="false">Marketing Digital</button>
                         </li>
-                        <li className="me-4" role="presentation">
+                        <li className="me-4 p-1" role="presentation">
                             <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="chatbot-tab" data-tabs-target="#chatbot" type="button" role="tab" aria-controls="chatbot" aria-selected="false">Chatbot</button>
                         </li>
-                        <li className="me-4" role="presentation">
+                        <li className="me-4 p-1" role="presentation">
                             <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="ecommerce-tab" data-tabs-target="#ecommerce" type="button" role="tab" aria-controls="ecommerce" aria-selected="false">E-commerce</button>
                         </li>
-                        <li role="presentation">
+                        <li className="me-4 p-1" role="presentation">
                             <button className="inline-block px-4 py-2 bg-gradient-to-r from-jade to-duck rounded-[25px] text-darknight z-20 font-bold tracking-tighter hover:-translate-y-1 hover:scale-105 duration-200 xl:text-2xl text-md" id="consultoria-tab" data-tabs-target="#consultoria" type="button" role="tab" aria-controls="consultoria" aria-selected="false">Consultoría</button>
                         </li>
                     </ul>
