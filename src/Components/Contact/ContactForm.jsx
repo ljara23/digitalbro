@@ -150,8 +150,9 @@ const ContactForm = ({ logodark }) => {
                 <button className="transition ease-in-out p-1 delay-150 bg-gradient-to-r from-jade to-duck text-darknight rounded-[20px] mt-3 px-5 hover:-translate-y-1 hover:scale-105 duration-300">
                     <span className="flex item-center items-center font-extraBold xl:text-2xl text-xs">Enviar<img alt="Logo" src={logodark} className="h-6 w-auto"/></span>
                 </button>
+                {statusMessage && <span className="text-center text-beige mt-4">{statusMessage}</span>}
             </div>
-            {statusMessage && <p className="text-center text-beige mt-4">{statusMessage}</p>}
+            
         </form>
     );
 };
