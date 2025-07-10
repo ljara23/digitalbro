@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import ReCAPTCHA from "react-google-recaptcha";
-
-
+//import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactForm = ({ logodark }) => {
 
-    const [captchaToken, setCaptchaToken] = useState('');
+    //const [captchaToken, setCaptchaToken] = useState('');
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -43,18 +41,17 @@ const ContactForm = ({ logodark }) => {
             return;
         }
 
-        const bodyData = {
+        /*const bodyData = {
             ...formData,    
             captchaToken,   // reCAPTCHA
-          };
-
+          };*/
         
         const response = await fetch('https://digitalbroperu.com/mailer/contact.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(bodyData),
+            body: JSON.stringify(formData),
         });
 
         const result = await response.json();
@@ -154,12 +151,6 @@ const ContactForm = ({ logodark }) => {
                     <span className="flex item-center items-center font-extraBold xl:text-2xl text-xs">Enviar<img alt="Logo" src={logodark} className="h-6 w-auto"/></span>
                 </button>
             </div>
-            <ReCAPTCHA
-                sitekey="6LfS_X0rAAAAANRhLjdFICZlbLNTffIu0b24WGC4"
-                onChange={(value) => setCaptchaToken(value)}
-            />
-            {statusMessage && <p className="text-center text-beige mt-4">{statusMessage}</p>}
-
         </form>
     );
 };
