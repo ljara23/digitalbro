@@ -180,91 +180,90 @@ export default function Inicio(){
                         </li>
                     </ul>
                 </div>
-                <div id="default-tab-content" className="flex flex-col justify-center items-center w-full lg:h-[60vh] xl:h-[50vh]">
-                    <div className="hidden flex items-center justify-between p-4 rounded-lg" id="web-a-medida" role="tabpanel" aria-labelledby="web-a-medida-tab">
-                        <div className="itemnav flex flex-1 p-2 lg:w-[40rem]">
-                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
-                                Desarrollamos sitios web totalmente personalizados según las <strong>necesidades y objetivos específicos</strong> de tu empresa. 
-                            </p>
-                        </div>
-                        <div className="flex-1 p-2 lg:flex justify-center">
+                <div id="default-tab-content" className="flex flex-col justify-center items-center w-full lg:h-[60vh] xl:h-[50vh] p-4">
+                    <div className="hidden flex md:flex-row flex-col md:flex-row-reverse items-center justify-between p-4 rounded-lg" id="web-a-medida" role="tabpanel" aria-labelledby="web-a-medida-tab">
+                        <div className="lg:flex-1 p-2 flex justify-center">
                             <img
                                 alt=""
                                 src={nav1}
-                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
+                                className="xl:h-[25rem] md:h-80 h-60 w-auto rounded-[25px]"
+                            />
+                        </div> 
+                        <div className="itemnav flex lg:flex-1 p-2 lg:w-[40rem] md:w-[20rem]">
+                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
+                                Desarrollamos sitios web totalmente personalizados según las <strong>necesidades y objetivos específicos</strong> de tu empresa. 
+                            </p>
+                        </div>                                                                                                                       
+                    </div>
+                    <div className="hidden flex md:flex-row flex-col items-center justify-between p-4 rounded-lg" id="diseno-y-desarrollo-web" role="tabpanel" aria-labelledby="diseno-y-desarrollo-web-tab">
+                        <div className="lg:flex-1 p-2 flex justify-center">
+                            <img
+                                alt=""
+                                src={nav2}
+                                className="xl:h-[25rem] md:h-80 h-60 w-auto rounded-[25px]"
                             />
                         </div>
-                    </div>
-                    <div className="hidden flex flex-row-reverse  items-center justify-between p-4 rounded-lg" id="diseno-y-desarrollo-web" role="tabpanel" aria-labelledby="diseno-y-desarrollo-web-tab">
-                        <div className="itemnav flex flex-1 p-2 w-[40rem]">
+                        <div className="itemnav flex lg:flex-1 p-2 lg:w-[40rem] md:w-[20rem]">
                             <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
                                 Creamos sitios web que no solo se ven increíbles, sino que también funcionan a la perfección. Desde <strong>la concepción</strong> de la idea hasta el <strong>desarrollo completo</strong>.
                             </p>
                         </div>
-                        <div className="flex-1 p-2 flex justify-center">
+                    </div>
+                    <div className="hidden flex md:flex-row flex-col md:flex-row-reverse items-center justify-between p-4 rounded-lg" id="marketing-digital" role="tabpanel" aria-labelledby="marketing-digital-tab">
+                        <div className="lg:flex-1 p-2 flex justify-center">
                             <img
                                 alt=""
-                                src={nav2}
-                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
+                                src={nav3}
+                                className="xl:h-[25rem] md:h-80 h-60 w-auto rounded-[25px]"
                             />
                         </div>
-                    </div>
-                    <div className="hidden flex items-center justify-between p-4 rounded-lg" id="marketing-digital" role="tabpanel" aria-labelledby="marketing-digital-tab">
-                        <div className="itemnav flex flex-1 p-2 w-[40rem]">
+                        <div className="itemnav flex lg:flex-1 p-2 lg:w-[40rem]">
                             <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
                                 Impulsamos tu presencia online con <strong>estrategias</strong> de marketing digital personalizadas, desde <strong>redes sociales</strong> hasta publicidad online, optimizando con <strong>análisis de datos</strong> para aumentar tu visibilidad y conectar con tu <strong>público objetivo.</strong>
                             </p>
                         </div>
-                        <div className="flex-1 p-2 flex justify-center">
-                            <img
-                                alt=""
-                                src={nav3}
-                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
-                            />
-                        </div>
                     </div>
-                    <div className="hidden flex flex-row-reverse items-center justify-between p-4 rounded-lg" id="chatbot" role="tabpanel" aria-labelledby="chatbot-tab">
-                        <div className="itemnav flex flex-1 p-2 w-[40rem]">
-                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
-                                Implementamos chatbots y CRM para mejorar la <strong>atención al cliente</strong>, ofreciendo respuestas instantáneas y personalizadas, <strong>optimizando</strong> la eficiencia.
-                            </p>
-                        </div>
-                        <div className="flex-1 p-2 flex justify-center">
+                    <div className="hidden flex md:flex-row flex-col items-center justify-between p-4 rounded-lg" id="chatbot" role="tabpanel" aria-labelledby="chatbot-tab">
+                        <div className="lg:flex-1 p-2 flex justify-center">
                             <img
                                 alt=""
                                 src={nav4}
-                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
+                                className="xl:h-[25rem] md:h-80 h-60 w-auto rounded-[25px]"
                             />
                         </div>
-                    </div>
-                    <div className="hidden flex items-center justify-between p-4 rounded-lg" id="ecommerce" role="tabpanel" aria-labelledby="ecommerce-tab">
-                        <div className="itemnav flex flex-1 p-2 w-[40rem]">
+                        <div className="itemnav flex lg:flex-1 p-2 lg:w-[40rem]">
                             <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
-                                Desarrollamos tiendas online completas y funcionales, con diseño atractivo, <strong>experiencia de compra</strong> fluida, <strong>pagos seguros</strong> y <strong>optimización</strong> para aumentar ventas.
+                                Implementamos chatbots y CRM para mejorar la <strong>atención al cliente</strong>, ofreciendo respuestas instantáneas y personalizadas, <strong>optimizando</strong> la eficiencia.
                             </p>
-                        </div>
-                        <div className="flex-1 p-2 flex justify-center">
+                        </div>                        
+                    </div>
+                    <div className="hidden flex md:flex-row flex-col md:flex-row-reverse items-center justify-between p-4 rounded-lg" id="ecommerce" role="tabpanel" aria-labelledby="ecommerce-tab">
+                        <div className="lg:flex-1 p-2 flex justify-center">
                             <img
                                 alt=""
                                 src={nav5}
-                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
+                                className="xl:h-[25rem] md:h-80 h-60 w-auto rounded-[25px]"
                             />
-                        </div>    
-                    
-                    </div>
-                    <div className="hidden flex flex-row-reverse items-center justify-between p-4 rounded-lg" id="consultoria" role="tabpanel" aria-labelledby="consultoria-tab">
-                        <div className="itemnav flex flex-1 p-2 w-[40rem]">
-                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
-                                Ofrecemos consultoría especializada para <strong>optimizar operaciones digitales</strong>, implementar <strong>soluciones tecnológicas</strong> y estrategias que aumenten la <strong>eficiencia y competitividad</strong> de tu empresa.
-                            </p>
                         </div>
-                        <div className="flex-1 p-2 flex justify-center">
+                        <div className="itemnav flex lg:flex-1 p-2 lg:w-[40rem]">
+                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
+                                Desarrollamos tiendas online completas y funcionales, con diseño atractivo, <strong>experiencia de compra</strong> fluida, <strong>pagos seguros</strong> y <strong>optimización</strong> para aumentar ventas.
+                            </p>
+                        </div>  
+                    </div>
+                    <div className="hidden flex md:flex-row flex-col items-center justify-between p-4 rounded-lg" id="consultoria" role="tabpanel" aria-labelledby="consultoria-tab">
+                        <div className="lg:flex-1 p-2 flex justify-center">
                             <img
                                 alt=""
                                 src={nav6}
-                                className="xl:h-[25rem] h-80 w-auto rounded-[25px]"
+                                className="xl:h-[25rem] md:h-80 h-60 w-auto rounded-[25px]"
                             />
                         </div>
+                        <div className="itemnav flex lg:flex-1 p-2 lg:w-[40rem]">
+                            <p className="xl:text-2xl text-md bg-beige text-darknight p-8 rounded-[25px] z-20">
+                                Ofrecemos consultoría especializada para <strong>optimizar operaciones digitales</strong>, implementar <strong>soluciones tecnológicas</strong> y estrategias que aumenten la <strong>eficiencia y competitividad</strong> de tu empresa.
+                            </p>
+                        </div>                        
                     </div>
                 </div>
             </section>
