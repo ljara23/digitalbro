@@ -39,9 +39,11 @@ jobs:
     - name: Upload compressed dist to FTP server
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ${{ secrets.SERVER_FTP }}       # Dirección del servidor FTP, guardada en GitHub Secrets
-        username: ${{ secrets.SERVER_USERMAIL }}  # Nombre de usuario FTP, guardado en GitHub Secrets
-        password: ${{ secrets.SERVER_PASSWORD }}  # Contraseña FTP, guardada en GitHub Secrets
-        port: 21                             # Puerto estándar de FTP (puedes cambiarlo si tu servidor usa otro)
-        local-dir: ./dist/                # El archivo comprimido que deseas subir
-        server-dir: /digitalbroperu.com/public_html/           # El directorio remoto en tu servidor (ajustar a la ruta correcta)
+        server: ${{ secrets.SERVER_FTP }}            # Dirección IP o nombre del host FTP (ej. ftp.digitalbroperu.com)
+        username: ${{ secrets.SERVER_USERMAIL }}     # Usuario FTP
+        password: ${{ secrets.SERVER_PASSWORD }}     # Contraseña FTP
+        port: 21                                      # Puerto estándar para FTPS
+        protocol: ftps                                # 👈 Fuerza el uso de FTPS (como en FileZilla)
+        local-dir: ./dist/                            # Carpeta local generada por tu build
+        server-dir: /digitalbroperu.com/public_html/  # Ruta en el servidor donde subirás los archivos
+        delete: true   
