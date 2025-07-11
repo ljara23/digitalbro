@@ -42,7 +42,7 @@ jobs:
         server: ${{ secrets.SERVER_FTP }}            # Dirección IP o nombre del host FTP (ej. ftp.digitalbroperu.com)
         username: ${{ secrets.SERVER_USERMAIL }}     # Usuario FTP
         password: ${{ secrets.SERVER_PASSWORD }}     # Contraseña FTP
-        port: 21                                      # Puerto estándar para FTPS
+        port: 990                                      # Puerto estándar para FTPS
         protocol: ftps                                # 👈 Fuerza el uso de FTPS (como en FileZilla)
         local-dir: ./dist/                            # Carpeta local generada por tu build
         server-dir: /digitalbroperu.com/public_html/  # Ruta en el servidor donde subirás los archivos
