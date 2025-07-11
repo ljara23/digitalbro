@@ -46,4 +46,4 @@ jobs:
         protocol: ftps                                # 👈 Fuerza el uso de FTPS (como en FileZilla)
         local-dir: ./dist/                            # Carpeta local generada por tu build
         server-dir: /digitalbroperu.com/public_html/  # Ruta en el servidor donde subirás los archivos
-        delete: true   
+        dangerous-clean-slate: true
