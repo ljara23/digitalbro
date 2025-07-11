@@ -1,9 +1,7 @@
 import { useState } from 'react';
-//import ReCAPTCHA from "react-google-recaptcha";
+
 
 const ContactForm = ({ logodark }) => {
-
-    //const [captchaToken, setCaptchaToken] = useState('');
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -41,11 +39,6 @@ const ContactForm = ({ logodark }) => {
             return;
         }
 
-        /*const bodyData = {
-            ...formData,    
-            captchaToken,   // reCAPTCHA
-          };*/
-        
         const response = await fetch('https://digitalbroperu.com/mailer/contact.php', {
             method: 'POST',
             headers: {
