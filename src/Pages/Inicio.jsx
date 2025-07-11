@@ -427,4 +427,4 @@ export default function Inicio(){
             </section>
         </> 
         )
-}
+} 
