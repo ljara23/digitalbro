@@ -29,7 +29,7 @@ a:hover {
 body {
   margin: 0;
   display: block;
-  place-items: center;
+  --place-items: center;
   min-width: 320px;
   min-height: 100vh;
   font-family: Poppins, sans-serif;
@@ -40,6 +40,7 @@ h1 {
   line-height: 1.1;
 }
 /* Asegúrate de tener esto en tu CSS global o Tailwind config */
+/*
 nav {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -48,7 +49,7 @@ nav {
 .transform {
   -webkit-transform: transform;
 }
-
+*/
 /*
 button {
   border-radius: 8px;
